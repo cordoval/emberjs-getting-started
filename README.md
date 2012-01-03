@@ -94,19 +94,19 @@ Here's the best part: templates are bindings-aware. That means that if you ever 
 Open the JavaScript file located at `js/app.js`. Replace the default contents with the following:
 
 ```javascript
-var Todos = Em.Application.create();
+var Todos = Ember.Application.create();
 ```
 
-This code creates a namespace for your application (called Todos), which is also an instance of Em.Application. **It is important that every Ember app creates an instance of Em.Application, because it is responsible for routing browser events to your views.**
+This code creates a namespace for your application (called Todos), which is also an instance of Ember.Application. **It is important that every Ember app creates an instance of Ember.Application, because it is responsible for routing browser events to your views.**
 
 ## 4. Defining Your Model
 
 In this tutorial, we want to create a list for managing todos. Users should be able to create a new todo with a specific task, then check it off once it’s done.
 
-Let’s define our model as a new subclass of Em.Object in the `js/app.js` file:
+Let’s define our model as a new subclass of Ember.Object in the `js/app.js` file:
 
 ```javascript
-Todos.Todo = Em.Object.extend({
+Todos.Todo = Ember.Object.extend({
   title: null,
   isDone: false
 });
@@ -118,10 +118,10 @@ We’ve now defined a class with two properties: `title`, a String, and `isDone`
 
 ## 5. Managing the Model Using a Controller
 
-Now that we know what our data looks like, let’s create a controller to manage it. Since we want to maintain an ordered list of todos, we’ll use an instance of `Em.ArrayProxy`.
+Now that we know what our data looks like, let’s create a controller to manage it. Since we want to maintain an ordered list of todos, we’ll use an instance of `Ember.ArrayProxy`.
 
 ```javascript
-Todos.todosController = Em.ArrayProxy.create({
+Todos.todosController = Ember.ArrayProxy.create({
   // Initialize the array controller with an empty array.
   content: []
 });
@@ -134,7 +134,7 @@ Now we have an array controller with no content. Let’s add a method to create 
 ```javascript
 // updating previous code
  
-Todos.todosController = Em.ArrayProxy.create({
+Todos.todosController = Ember.ArrayProxy.create({
   // Initialize the array controller with an empty array
   content: [],
 
@@ -147,7 +147,7 @@ Todos.todosController = Em.ArrayProxy.create({
 });
 ```
 
-`Em.ArrayProxy` acts as a proxy onto its content Array. Ember will propagate any modifications made to the ArrayProxy to the content Array.
+`Ember.ArrayProxy` acts as a proxy onto its content Array. Ember will propagate any modifications made to the ArrayProxy to the content Array.
 
 ## 6. Doing It with Style
 
@@ -173,7 +173,7 @@ You’ll also see that the starter kit includes a default Handlebars template. R
 
 ```html
 <script type="text/html">
-  {{view Em.TextField id="new-todo" placeholder="What needs to be done?"}}
+  {{view Ember.TextField id="new-todo" placeholder="What needs to be done?"}}
 </script>
 ```
 
@@ -192,7 +192,7 @@ Double click on your `index.html` file to open it in your browser. You should se
 Insert this code in `js/app.js` file:
 
 ```javascript
-Todos.CreateTodoView = Em.TextField.extend({
+Todos.CreateTodoView = Ember.TextField.extend({
   insertNewline: function() {
     var value = this.get('value');
  
@@ -204,9 +204,9 @@ Todos.CreateTodoView = Em.TextField.extend({
 });
 ```
 
-Since `CreateTodoView` will handle events for a text field, we create a subclass of Em.TextField, which provides several conveniences for working with these input controls. For example, you can access the `value` property and respond to higher level events, such as `insertNewline`, when the user presses enter.
+Since `CreateTodoView` will handle events for a text field, we create a subclass of Ember.TextField, which provides several conveniences for working with these input controls. For example, you can access the `value` property and respond to higher level events, such as `insertNewline`, when the user presses enter.
 
-Now that we have defined our view, let’s update the template to use our new view subclass. Switch back to `index.html` and update the view helper to say `Todos.CreateTodoView` instead of `Em.TextField`.
+Now that we have defined our view, let’s update the template to use our new view subclass. Switch back to `index.html` and update the view helper to say `Todos.CreateTodoView` instead of `Ember.TextField`.
 
 ```html
 <h1>Todos</h1>
@@ -217,7 +217,7 @@ Now that we have defined our view, let’s update the template to use our new vi
 </script>
 ```
 
-Now that we have UI to create new todos, let’s create the code to display them. We’ll use the Handlebars `#collection` helper to display a list of items. `#collection` will create an instance of Em.CollectionView that renders every item in its underlying Array using the enclosed HTML.
+Now that we have UI to create new todos, let’s create the code to display thEmber. We’ll use the Handlebars `#collection` helper to display a list of items. `#collection` will create an instance of Ember.CollectionView that renders every item in its underlying Array using the enclosed HTML.
 
 ```html
 <script type="text/html">
@@ -246,7 +246,7 @@ This is actually a core concept in Ember, not just something that demos well. Em
 
 We now have the ability to add todos, but no way to mark them as done. Before the frustration of a never-ending todo list gets the better of us, let’s add the ability to mark todos complete.
 
-The first thing we need to do is add a checkbox to each todo list item. As was mentioned earlier, if we want to handle events, such as user input, we need a view. In this case, we are adding a checkbox and want to be notified whenever the value of the checkbox is changed by the user. Let’s update the Handlebars template in `index.html` to look like the following:
+The first thing we need to do is add a checkbox to each todo list itEmber. As was mentioned earlier, if we want to handle events, such as user input, we need a view. In this case, we are adding a checkbox and want to be notified whenever the value of the checkbox is changed by the user. Let’s update the Handlebars template in `index.html` to look like the following:
 
 ```html
 <script type="text/html">
@@ -254,12 +254,12 @@ The first thing we need to do is add a checkbox to each todo list item. As was m
   placeholder="What needs to be done?"}}
  
 {{#collection contentBinding="Todos.todosController" tagName="ul"}}
-{{view Em.Checkbox titleBinding="parentView.content.title"
+{{view Ember.Checkbox titleBinding="parentView.content.title"
     valueBinding="parentView.content.isDone"}}
 {{/collection}}
 </script>
 ```
-Let’s take a second to talk about the bindings we just set up. For every item in its underlying array, `Em.CollectionView` will create a new item view whose `content` property contains the object the view should represent. In our case, there will be a child view for each todo. Since the checkbox is a child view of each item view, we can access the parent via the `parentView` property. When we bind to `parentView.content.title`, we’re saying to bind to the `title` property of the Todo object represented by the item view.
+Let’s take a second to talk about the bindings we just set up. For every item in its underlying array, `Ember.CollectionView` will create a new item view whose `content` property contains the object the view should represent. In our case, there will be a child view for each todo. Since the checkbox is a child view of each item view, we can access the parent via the `parentView` property. When we bind to `parentView.content.title`, we’re saying to bind to the `title` property of the Todo object represented by the item view.
 
 Under the hood, Ember binds an event handler to the change event of the checkbox and updates value when the event occurs. This may change as needed for browser compatibility, but working with a Ember property insulates you from those concerns.
 
@@ -297,7 +297,7 @@ Handlebars expressions, like `{{remainingString}}`, allows us to automatically u
 Let’s go ahead and implement that view in `app.js` now:
 
 ```javascript
-Todos.StatsView = Em.View.extend({
+Todos.StatsView = Ember.View.extend({
   remainingBinding: 'Todos.todosController.remaining',
  
   remainingString: function() {
@@ -319,7 +319,7 @@ When we have information that views need but is based on aggregate information a
 ```javascript
 // updating previous code
  
-Todos.todosController = Em.ArrayProxy.create({
+Todos.todosController = Ember.ArrayProxy.create({
  
   // ...
   createTodo: function(title) {
@@ -354,7 +354,7 @@ Let’s add a new `clearCompletedTodos` method to `todosController`.
 ```javascript
 // updating existing code
  
-Todos.todosController = Em.ArrayProxy.create({
+Todos.todosController = Ember.ArrayProxy.create({
  
   // ...
   remaining: function() {
@@ -370,7 +370,7 @@ Next, let’s add a button to our template. Open `index.html` and add a button i
 
 ```html
 {{#view Todos.StatsView id="stats"}}
-  {{#view Em.Button classBinding="isActive"
+  {{#view Ember.Button classBinding="isActive"
     target="Todos.todosController"
     action="clearCompletedTodos"}}
     Clear Completed Todos
@@ -379,11 +379,11 @@ Next, let’s add a button to our template. Open `index.html` and add a button i
 {{/view}}
 ```
 
-We’ve defined an instance of Em.Button, which calls a method on an object when it is clicked. In this case we’ve told the button to call the `clearCompletedTodos` method (its action) on the `Todos.todosController` object (its target).
+We’ve defined an instance of Ember.Button, which calls a method on an object when it is clicked. In this case we’ve told the button to call the `clearCompletedTodos` method (its action) on the `Todos.todosController` object (its target).
 
-We’ve also told it to add an `is-active class` to the view when it is clicked or tapped. Every Em.Button has an `isActive` property that will be true when it is in the process of being clicked. This allows us to display a visual cue to the user that they have hit the right target.
+We’ve also told it to add an `is-active class` to the view when it is clicked or tapped. Every Ember.Button has an `isActive` property that will be true when it is in the process of being clicked. This allows us to display a visual cue to the user that they have hit the right target.
 
-Go back to your browser and try it out. Add some todos, then mark them done and clear them. Because we previously bound the visual list to the `todosController`, making a change through new means has the expected effect.
+Go back to your browser and try it out. Add some todos, then mark them done and clear thEmber. Because we previously bound the visual list to the `todosController`, making a change through new means has the expected effect.
 
 # 11. Marking All as Done
 
@@ -394,7 +394,7 @@ It turns out that, due to our application’s declarative nature, all the hard w
 Let’s first create a new computed property on our controller that describes whether or not every todo is done. It might look something like this:
 
 ```javascript
-Todos.todosController = Em.ArrayProxy.create({
+Todos.todosController = Ember.ArrayProxy.create({
  
   // ...
   
@@ -415,7 +415,7 @@ Next, open `index.html`, we’ll create a checkbox view to mark all items comple
 ```html
 <!-- directly below the Todos.StatsView -->
  
-{{view Em.Checkbox class="mark-all-done"
+{{view Ember.Checkbox class="mark-all-done"
   title="Mark All as Done"
   valueBinding="Todos.todosController.allAreDone"}}
 ```
@@ -427,7 +427,7 @@ So far, our computed properties have described how to calculate a value from dep
 ```javascript
 // updating existing code
  
-Todos.todosController = Em.ArrayProxy.create({
+Todos.todosController = Ember.ArrayProxy.create({
  
   // ...
  

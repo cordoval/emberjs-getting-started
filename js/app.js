@@ -1,11 +1,11 @@
-Todos = Em.Application.create();
+Todos = Ember.Application.create();
 
-Todos.Todo = Em.Object.extend({
+Todos.Todo = Ember.Object.extend({
   title: null,
   isDone: false
 });
  
-Todos.todosController = Em.ArrayProxy.create({
+Todos.todosController = Ember.ArrayProxy.create({
   // Initialize the array controller with an empty array.
   content: [],
  
@@ -35,7 +35,7 @@ Todos.todosController = Em.ArrayProxy.create({
   }.property('@each.isDone')
 });
 
-Todos.CreateTodoView = Em.TextField.extend({
+Todos.CreateTodoView = Ember.TextField.extend({
   insertNewline: function() {
     var value = this.get('value');
  
@@ -46,7 +46,7 @@ Todos.CreateTodoView = Em.TextField.extend({
   }
 });
 
-Todos.StatsView = Em.View.extend({
+Todos.StatsView = Ember.View.extend({
   remainingBinding: 'Todos.todosController.remaining',
  
   remainingString: function() {
