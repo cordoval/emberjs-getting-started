@@ -151,7 +151,7 @@ Todos.todosController = Em.ArrayProxy.create({
 
 ## 6. Doing It with Style
 
-We’ve provided a simple stylesheet to give the application some style. Download the [CSS file](https://raw.github.com/frodsan/todos/master/css/todos.css), add it to your project’s `css` directory, then include it in your `index.html` `<head>` tag:
+We’ve provided a simple stylesheet to give the application some style. Download the [CSS file](https://raw.github.com/frodsan/emberjs-getting-started/master/css/todos.css), add it to your project’s `css` directory, then include it in your `index.html` `<head>` tag:
 
 ```html
 <link rel="stylesheet" href="css/todos.css">
