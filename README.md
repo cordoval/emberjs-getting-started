@@ -452,6 +452,7 @@ Reload the app and add some todos. Click “Mark All as Done”. Wow! Each of th
 **When you use Ember, as you scale your UI, you never need to wonder whether a new feature will work consistently with parts of the UI you already implemented. Since you build your view layer to simply reflect the state of your models, you can make changes however you want and see them update automatically.**
 
 Source:
+
 * SproutCore Guides: [http://guides.sproutcore20.com/](http://guides.sproutcore20.com/).
 * Ember.js Documentation: [http://emberjs.com/](http://emberjs.com/).
 
