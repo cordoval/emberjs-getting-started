@@ -5,7 +5,7 @@ Todos.Todo = Ember.Object.extend({
   isDone: false
 });
  
-Todos.todosController = Ember.ArrayProxy.create({
+Todos.todosController = Ember.ArrayController.create({
   // Initialize the array controller with an empty array.
   content: [],
  

@@ -118,10 +118,10 @@ We’ve now defined a class with two properties: `title`, a String, and `isDone`
 
 ## 5. Managing the Model Using a Controller
 
-Now that we know what our data looks like, let’s create a controller to manage it. Since we want to maintain an ordered list of todos, we’ll use an instance of `Ember.ArrayProxy`.
+Now that we know what our data looks like, let’s create a controller to manage it. Since we want to maintain an ordered list of todos, we’ll use an instance of `Ember.ArrayController`.
 
 ```javascript
-Todos.todosController = Ember.ArrayProxy.create({
+Todos.todosController = Ember.ArrayController.create({
   // Initialize the array controller with an empty array.
   content: []
 });
@@ -134,7 +134,7 @@ Now we have an array controller with no content. Let’s add a method to create 
 ```javascript
 // updating previous code
  
-Todos.todosController = Ember.ArrayProxy.create({
+Todos.todosController = Ember.ArrayController.create({
   // Initialize the array controller with an empty array
   content: [],
 
@@ -147,7 +147,7 @@ Todos.todosController = Ember.ArrayProxy.create({
 });
 ```
 
-`Ember.ArrayProxy` acts as a proxy onto its content Array. Ember will propagate any modifications made to the ArrayProxy to the content Array.
+`Ember.ArrayController` acts as a proxy onto its content Array. Ember will propagate any modifications made to the ArrayController to the content Array.
 
 ## 6. Doing It with Style
 
@@ -319,7 +319,7 @@ When we have information that views need but is based on aggregate information a
 ```javascript
 // updating previous code
  
-Todos.todosController = Ember.ArrayProxy.create({
+Todos.todosController = Ember.ArrayController.create({
  
   // ...
   createTodo: function(title) {
@@ -354,7 +354,7 @@ Let’s add a new `clearCompletedTodos` method to `todosController`.
 ```javascript
 // updating existing code
  
-Todos.todosController = Ember.ArrayProxy.create({
+Todos.todosController = Ember.ArrayController.create({
  
   // ...
   remaining: function() {
@@ -394,7 +394,7 @@ It turns out that, due to our application’s declarative nature, all the hard w
 Let’s first create a new computed property on our controller that describes whether or not every todo is done. It might look something like this:
 
 ```javascript
-Todos.todosController = Ember.ArrayProxy.create({
+Todos.todosController = Ember.ArrayController.create({
  
   // ...
   
@@ -427,7 +427,7 @@ So far, our computed properties have described how to calculate a value from dep
 ```javascript
 // updating existing code
  
-Todos.todosController = Ember.ArrayProxy.create({
+Todos.todosController = Ember.ArrayController.create({
  
   // ...
  
