@@ -172,7 +172,7 @@ First, add an `<h1>` tag with the name of the application:
 You’ll also see that the starter kit includes a default Handlebars template. Remove it and replace it with the following Handlebars template, which emits a text field for our users to type in:
 
 ```html
-<script type="text/html">
+<script type="text/x-handlebars">
   {{view Ember.TextField id="new-todo" placeholder="What needs to be done?"}}
 </script>
 ```
@@ -211,7 +211,7 @@ Now that we have defined our view, let’s update the template to use our new vi
 ```html
 <h1>Todos</h1>
 
-<script type="text/html">
+<script type="text/x-handlebars">
   {{view Todos.CreateTodoView id="new-todo" 
     placeholder="What needs to be done?"}}
 </script>
@@ -220,7 +220,7 @@ Now that we have defined our view, let’s update the template to use our new vi
 Now that we have UI to create new todos, let’s create the code to display thEmber. We’ll use the Handlebars `#collection` helper to display a list of items. `#collection` will create an instance of Ember.CollectionView that renders every item in its underlying Array using the enclosed HTML.
 
 ```html
-<script type="text/html">
+<script type="text/x-handlebars">
   {{view Todos.CreateTodoView id="new-todo" 
     placeholder="What needs to be done?"}}
     
@@ -249,7 +249,7 @@ We now have the ability to add todos, but no way to mark them as done. Before th
 The first thing we need to do is add a checkbox to each todo list itEmber. As was mentioned earlier, if we want to handle events, such as user input, we need a view. In this case, we are adding a checkbox and want to be notified whenever the value of the checkbox is changed by the user. Let’s update the Handlebars template in `index.html` to look like the following:
 
 ```html
-<script type="text/html">
+<script type="text/x-handlebars">
 {{view Todos.CreateTodoView id="new-todo" 
   placeholder="What needs to be done?"}}
  
