@@ -254,12 +254,12 @@ The first thing we need to do is add a checkbox to each todo list itEmber. As wa
   placeholder="What needs to be done?"}}
  
 {{#collection contentBinding="Todos.todosController" tagName="ul"}}
-{{view Ember.Checkbox titleBinding="parentView.content.title"
-    valueBinding="parentView.content.isDone"}}
+  {{view Ember.Checkbox titleBinding="content.title"
+      valueBinding="content.isDone"}}
 {{/collection}}
 </script>
 ```
-Let’s take a second to talk about the bindings we just set up. For every item in its underlying array, `Ember.CollectionView` will create a new item view whose `content` property contains the object the view should represent. In our case, there will be a child view for each todo. Since the checkbox is a child view of each item view, we can access the parent via the `parentView` property. When we bind to `parentView.content.title`, we’re saying to bind to the `title` property of the Todo object represented by the item view.
+Let’s take a second to talk about the bindings we just set up. For every item in its underlying array, `Ember.CollectionView` will create a new item view whose `content` property contains the object the view should represent. In our case, there will be a child view for each todo. Since the checkbox is a child view of each item view, when we bind to `content.title`, we’re saying to bind to the `title` property of the Todo object represented by the item view.
 
 Under the hood, Ember binds an event handler to the change event of the checkbox and updates value when the event occurs. This may change as needed for browser compatibility, but working with a Ember property insulates you from those concerns.
 
@@ -270,8 +270,8 @@ We’ll use a property on the collection helper to set up this binding:
 ```html
 {{#collection contentBinding="Todos.todosController" tagName="ul"
   itemClassBinding="content.isDone"}}
-  {{view Èm.Checkbox titleBinding="parentView.content.title"
-    valueBinding="parentView.content.isDone"}}
+  {{view Èm.Checkbox titleBinding="content.title"
+    valueBinding="content.isDone"}}
 {{/collection}}
 ```
 

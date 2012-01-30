@@ -42,8 +42,8 @@
 
     {{#collection contentBinding="Todos.todosController" tagName="ul"
       itemClassBinding="content.isDone"}}
-      {{view Ember.Checkbox titleBinding="parentView.content.title"
-        valueBinding="parentView.content.isDone"}}
+      {{view Ember.Checkbox titleBinding="content.title"
+        valueBinding="content.isDone"}}
     {{/collection}}
   </script>
 
