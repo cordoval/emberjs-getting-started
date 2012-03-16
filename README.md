@@ -1,12 +1,17 @@
 # Getting Started with Ember.js
 
-*This is an adaptation of [SproutCore 2.0 Getting Started Guide](http://guides.sproutcore20.com/getting_started.html) to [Ember.js](http://emberjs.com/). I'm doing it to avoid confusion.*
+*This is an adaptation of SproutCore 2.0 Getting Started Guide*
+
+Works for >= Ember.js 0.9.5 version.
 
 You can see the finished source code on this Github repo.
 
 ## 1. Installing Ember
 
-Download the [Ember Starter Kit](https://github.com/emberjs/starter-kit/downloads) if you haven’t already. Unzip and it open the directory in your favorite text editor. *In this repo, i'm using my [cloned starter kit version](https://github.com/frodsan/starter-kit) that uses jQuery's current version (1.7.1).*
+Download the [Ember Starter Kit](https://github.com/emberjs/starter-kit/downloads)
+if you haven’t already. Unzip and it open the directory in your favorite text
+editor. *In this repo, i'm using my [starter kit version](https://github.com/frodsan/emberjs-starter-kit/downloads)
+that uses jQuery's current version (1.7.1).*
 
 ## 2. Core Concepts
 
@@ -32,7 +37,8 @@ MyApp.country = Ember.Object.create({
   // create a binding to the presidentName property.
   presidentNameBinding: 'MyApp.president.name'
 });
-     
+
+// Later, after Ember has resolved bindings...     
 MyApp.country.get('presidentName');
 // "Barack Obama"
 ```
