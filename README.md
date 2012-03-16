@@ -391,7 +391,7 @@ We’ve also told it to add an `is-active class` to the view when it is clicked 
 
 Go back to your browser and try it out. Add some todos, then mark them done and clear thEmber. Because we previously bound the visual list to the `todosController`, making a change through new means has the expected effect.
 
-# 11. Marking All as Done
+## 11. Marking All as Done
 
 Let’s say you’ve decided to actually get all of your work done. Wouldn’t it be nice to have a way to easily mark every todo as complete?
 
@@ -457,9 +457,11 @@ Reload the app and add some todos. Click “Mark All as Done”. Wow! Each of th
 
 **When you use Ember, as you scale your UI, you never need to wonder whether a new feature will work consistently with parts of the UI you already implemented. Since you build your view layer to simply reflect the state of your models, you can make changes however you want and see them update automatically.**
 
-Source:
+## Resources:
 
-* SproutCore Guides: [http://guides.sproutcore20.com/](http://guides.sproutcore20.com/).
-* Ember.js Documentation: [http://emberjs.com/](http://emberjs.com/).
+* Documentation: <http://emberjs.com/>
+* Github Repository: <https://github.com/emberjs/ember.js>
+* Wiki: <https://github.com/emberjs/ember.js/wiki>
 
-THE END - [@frodsan](https://twitter.com/frodsan)
+Thanks,
+[@frodsan](https://twitter.com/frodsan)
