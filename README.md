@@ -345,10 +345,6 @@ Here, we specify our dependent key using `@each`. This allows us to depend on pr
 
 It’s important to declare dependent keys because Ember uses this information to know when to update bindings. In our case, our StatsView updates any time todosController’s remaining property changes.
 
-Here’s how it all fits together:
-
-![Ember](http://guides.sproutcore20.com/images/html_based/bindings.png)
-
 As we build up our application, we create **declarative** links between objects. These links describe how application state flows from the model layer to the HTML in the presentation layer.
 
 ## 10. Clearing Completed Todos
