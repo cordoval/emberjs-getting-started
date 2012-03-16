@@ -4,7 +4,8 @@
 
 Works for >= Ember.js 0.9.5 version.
 
-You can see the finished source code on this Github repo.
+Check the application here: <http://frodsan.github.com/emberjs-getting-started>
+Also, You can see the finished source code on this Github repo.
 
 ## 1. Installing Ember
 
