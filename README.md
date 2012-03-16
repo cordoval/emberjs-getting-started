@@ -217,7 +217,7 @@ Now that we have defined our view, let’s update the template to use our new vi
 </script>
 ```
 
-Now that we have UI to create new todos, let’s create the code to display thEmber. We’ll use the Handlebars `#collection` helper to display a list of items. `#collection` will create an instance of Ember.CollectionView that renders every item in its underlying Array using the enclosed HTML.
+Now that we have UI to create new todos, let’s create the code to display them. We’ll use the Handlebars `#collection` helper to display a list of items. `#collection` will create an instance of Ember.CollectionView that renders every item in its underlying Array using the enclosed HTML.
 
 ```html
 <script type="text/x-handlebars">
